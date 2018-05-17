@@ -20,5 +20,10 @@
 			<type>2</type>
 			<locationURI>PARENT-2-PROJECT_LOC/Google%20Drive/Papers%20Pendientes/siie2018/proto/navigation/src</locationURI>
 		</link>
+		<link>
+			<name>test</name>
+			<type>2</type>
+			<location>C:/Users/Gayoso/Google Drive/Papers Pendientes/siie2018/proto/navigation/test</location>
+		</link>
 	</linkedResources>
 </projectDescription>
