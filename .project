@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SIIE2018</name>
+	<name>SIIE2018Linked</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -18,12 +18,12 @@
 		<link>
 			<name>src</name>
 			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Google%20Drive/Papers%20Pendientes/siie2018/proto/navigation/src</locationURI>
+			<location>C:/Users/ILSA/Google Drive/Papers Pendientes/siie2018/protoJL/navigation/src</location>
 		</link>
 		<link>
 			<name>test</name>
 			<type>2</type>
-			<location>C:/Users/Gayoso/Google Drive/Papers Pendientes/siie2018/proto/navigation/test</location>
+			<location>C:/Users/ILSA/Google Drive/Papers Pendientes/siie2018/protoJL/navigation/test</location>
 		</link>
 	</linkedResources>
 </projectDescription>
