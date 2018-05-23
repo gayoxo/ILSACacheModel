@@ -6,7 +6,7 @@ import org.roaringbitmap.RoaringBitmap;
 
 public class InvertedIndex {
     private Map<Integer,RoaringBitmap> index;
-
+    
     
     public InvertedIndex() {
     	 index = new HashMap<>();
@@ -31,7 +31,6 @@ public class InvertedIndex {
     
     public void InsertResource(Integer o,RoaringBitmap tagsFor)
     {
-
              for(int t: tagsFor) {
                  RoaringBitmap os = index.get(t);
                  if (os == null) {
@@ -42,15 +41,14 @@ public class InvertedIndex {
              }
     }
 
-	public void DeleteResource(int o, RoaringBitmap tagsFor) {
-		for(int t: tagsFor) {
+     public void DeleteResource(int o, RoaringBitmap tagsFor,DCollection col) {
+         for(int t: tagsFor) {
             RoaringBitmap os = index.get(t);
-            if (os == null) {
-                os = new RoaringBitmap();
-                index.put(t,os);
-            }
             os.remove(o);
+            if (os.isEmpty()) {
+                index.remove(t);
+                col.removeTag(t);
+            }
         }
-		
-	}
+    }
 }

@@ -50,10 +50,9 @@ public class CachedAdvancedNavigationSystem extends BasicNavigationSystem {
     			snapshotTags.put(tag, System.nanoTime());
         }	
         else if (a.isDelete()) {
-        	
                 RoaringBitmap tagsResource = collection.getTagsFor(a.getResource());
-		iindex.DeleteResource(a.getResource(), tagsResource);
-		collection.removeObject(a.getResource());
+        	collection.removeObject(a.getResource(), tagsResource);
+		iindex.DeleteResource(a.getResource(), tagsResource,collection);
 		for (int tag : tagsResource) 
 		    snapshotTags.put(tag, System.nanoTime());
         }

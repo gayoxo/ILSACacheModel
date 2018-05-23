@@ -81,9 +81,8 @@ public class CachedNavigationSystem extends BasicNavigationSystem {
         	}else
         		if (a.isDelete())
         		{
-        			RoaringBitmap tagsResource = collection.getTagsFor(a.getResource());
-        			iindex.DeleteResource(a.getResource(), tagsResource);
-        			collection.removeObject(a.getResource());     			
+        			iindex.DeleteResource(a.getResource(), collection.getTagsFor(a.getResource()),collection);
+        			collection.removeObject(a.getResource(), collection.getTagsFor(a.getResource()));
            		        resourceSetsStore.clear();
         		        selectableTagsStore.clear();
             		        representativesStore.clear();

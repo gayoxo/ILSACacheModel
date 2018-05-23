@@ -12,7 +12,6 @@ public class Main {
 //   private final static int NACTIONS=10000; 
    private final static int STEP=1000;
    private static final Random RAND=new Random();
-private static final double ACTIONSMULTIPLICITY = 5;
     
     
  private static int grand(int top) {
@@ -63,15 +62,14 @@ private static final double ACTIONSMULTIPLICITY = 5;
     		 long nactionDel = 10;
     		 while (nactionDel>0)
     		 {
-    		 Integer Borrar=RAND.nextInt(RecursosInsertados.size());
+    		 int Borrar=RAND.nextInt(RecursosInsertados.size());//RAND.nextInt(ActualInsertIndex);
     		 
-    		 Integer Recurso = RecursosInsertados.get(Borrar);
-    		 RecursosInsertados.remove(Recurso);
+    		 int Recurso = RecursosInsertados.get(Borrar);
+                 RecursosInsertados.remove(Borrar);
     		 actions.add(makeDeleteAction(Recurso));
-    		 col.removeObject(Recurso);
+    		 col.removeObject(Recurso, colIni.getTagsFor(Recurso));
     		 nactionDel--;
     		 pendientesInsert.add(Recurso);
-    		 
     		 }
     	 }
     	 
@@ -96,7 +94,7 @@ private static final double ACTIONSMULTIPLICITY = 5;
     	
     	 
     	 //Calculo acciones
-    	 long naction = Math.round(ActualInsertIndex*ACTIONSMULTIPLICITY);
+    	 long naction = Math.round(ActualInsertIndex*5);
     	 
     	 while (naction>0)
     	 {
@@ -156,10 +154,10 @@ private static void simulate(NavigationSystem ns,NavigationAction[] actions, boo
    System.out.println("Collection loaded");
    NavigationAction[] actions = makeActions(col);
    
-//   simulate(new BasicNavigationSystem(new DCollection(),true),actions,false);
-//   simulate(new BasicCachedNavigationSystem(new DCollection(),true),actions,false);
-//   simulate(new CachedNavigationSystem(new DCollection(),true),actions,false);
-//   simulate(new CachedAdvancedNavigationSystem(new DCollection(),true),actions,false);
+   simulate(new BasicNavigationSystem(new DCollection(),true),actions,false);
+   simulate(new BasicCachedNavigationSystem(new DCollection(),true),actions,false);
+   simulate(new CachedNavigationSystem(new DCollection(),true),actions,false);
+   simulate(new CachedAdvancedNavigationSystem(new DCollection(),true),actions,false);
    System.gc();System.gc();System.gc();System.gc();
    System.out.println("BASIC");
    simulate(new BasicNavigationSystem(new DCollection(),true),actions,true);

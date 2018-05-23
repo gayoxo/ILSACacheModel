@@ -18,6 +18,9 @@ public class DCollection {
      this.tagsFor = new HashMap<>();
      this.tags = new RoaringBitmap();
    }
+   public void removeTag(int t) {
+       tags.remove(t);
+   }
    public void addObject(int o,RoaringBitmap tags) {
      resources.add(o); 
      tagsFor.put(o,tags);
@@ -63,9 +66,9 @@ public class DCollection {
 		 tags.add(t);
 	
  }
-public void removeObject(Integer recurso) {
-resources.remove(recurso);
-tagsFor.remove(recurso);
+public void removeObject(Integer recurso, RoaringBitmap tagsFor2) {
+   resources.remove(recurso);
+   tagsFor.remove(recurso);
 //resources.remove(resources.rank(recurso));
 }
  
